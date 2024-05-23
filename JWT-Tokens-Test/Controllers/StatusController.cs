@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.JSInterop;
 
@@ -9,7 +10,7 @@ namespace JWT_Tokens_Test.Controllers
     [ApiController]
     public class StatusController : ControllerBase
     {
-      [Authorize] //This Tage is used to add Authentication (End ppoint)
+      [Authorize(Roles ="Admin")] //This Tage is used to add Authentication and Authorization Now i give the Role that only admin have authority
         [HttpGet]
         public ActionResult AuthStatus()
         {
